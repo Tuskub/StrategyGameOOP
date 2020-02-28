@@ -8,12 +8,3 @@ class Unit(Coordinates):
     hp: int
     move_range: int
 
-    def atack(self, x, y):
-        if self.X == x and self.Y == y:
-            print('baam')
-        else:
-            print('not today')
-
-
-test = Unit(1, 2, 3, 4, 5)
-print(test)
