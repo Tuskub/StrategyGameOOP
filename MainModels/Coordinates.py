@@ -1,7 +1,10 @@
+from dataclasses import dataclass
+
+
+@dataclass
 class Coordinates:
-    def __init__(self, x, y):
-        self.X = x
-        self.Y = y
+    X: int
+    Y: int
 
     def get_hash_code(self):
         return (self.X * 397) ** self.Y
