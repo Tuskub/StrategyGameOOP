@@ -3,8 +3,8 @@ from dataclasses import dataclass
 
 @dataclass
 class Coordinates:
-    X: int
-    Y: int
+    x: int
+    y: int
 
     def get_hash_code(self):
-        return (self.X * 397) ** self.Y
+        return (self.x * 397) ** self.y

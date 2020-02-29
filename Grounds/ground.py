@@ -4,4 +4,9 @@ from MainModels.coordinates import Coordinates
 
 @dataclass
 class Ground(Coordinates):
-    img_path: str
+    _img_path: str
+    _is_playble_field = None
+
+    @classmethod
+    def get_is_playble_field(cls):
+        return cls._is_playble_field

@@ -1,5 +1,10 @@
-from Grounds.ground import Ground
+from Grounds.playable.grass import Grass
+from Grounds.not_playable.water import Water
 
 
-test = Ground(1, 2, True)
-print(test)
+grass = Grass(1, 2, 'tete')
+print(grass)
+water = Water(2, 1, 'test')
+print(water)
+print("Grass is playable? %s" % Grass.get_is_playble_field())
+print("Water is playable? %s" % Water.get_is_playble_field())

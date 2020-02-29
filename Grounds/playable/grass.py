@@ -1,5 +1,8 @@
-from MainModels.ground import Ground
+from dataclasses import dataclass
+from Grounds.ground import Ground
 
 
-test = Ground(1, 2, True)
-print(test)
+@dataclass
+class Grass(Ground):
+    _is_playble_field = True
+    pass

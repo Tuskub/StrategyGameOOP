@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from Coordinates import Coordinates
+from MainModels.coordinates import Coordinates
 
 
 @dataclass
@@ -9,5 +9,4 @@ class Unit(Coordinates):
     move_range: int
     attack_range: int
 
-    def death(self):
-        print('I\'m dead !!!')
+    
