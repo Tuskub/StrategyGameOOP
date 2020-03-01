@@ -8,5 +8,3 @@ class Unit(Coordinates):
     hp: int
     move_range: int
     attack_range: int
-
-    

@@ -8,3 +8,6 @@ class Coordinates:
 
     def get_hash_code(self):
         return (self.x * 397) ** self.y
+
+    def get_coordinates(self):
+        return self.x, self.y
