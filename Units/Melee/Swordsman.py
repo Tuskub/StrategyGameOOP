@@ -6,5 +6,5 @@ from Units.melee_unit import Melee
 class Swordsman(Melee):
     _hp: int = 100
     move_range: int = 5
-    damage = 50
+    _damage: int = 50
     img_path = 'path/to/image'
