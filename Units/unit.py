@@ -19,3 +19,8 @@ class Unit(Coordinates):
 
     def _get_damage(self, other=None):
         return self._damage
+
+    def move(self, coordinates):
+        self.x = coordinates.x
+        self.y = coordinates.y
+        return
