@@ -5,8 +5,6 @@ from math import fabs
 
 @dataclass
 class Range(Unit):
-    _close_damage: int = 0
-    atack_range = 0
 
     def _get_damage(self, other):
         mod_dx = fabs(self.x - other.x)
