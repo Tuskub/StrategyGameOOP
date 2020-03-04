@@ -1,8 +1,8 @@
 from dataclasses import dataclass
-from Grounds.ground import Ground
+from grounds.ground import Ground
 
 
 @dataclass
 class Grass(Ground):
-    _is_playble_field = True
+    _playble_field = True
     pass

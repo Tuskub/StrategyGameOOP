@@ -4,7 +4,7 @@ from MainModels.map import Map
 
 
 @dataclass
-class Game_control:
+class GameControl:
     map: Map
 
     def can_unit_move(self, unit, x, y):
