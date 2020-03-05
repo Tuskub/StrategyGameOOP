@@ -4,8 +4,7 @@ from units.unit import Unit
 
 @dataclass
 class Melee(Unit):
-    __atack_range = 1
+    attack_range: int = 1
 
-    @staticmethod
     def get_atack_range():
-        return Melee.__atack_range
+        return Melee.attack_range

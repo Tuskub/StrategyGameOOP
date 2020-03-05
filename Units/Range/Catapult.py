@@ -8,5 +8,5 @@ class Catapult(Range):
     move_range: int = 1
     _damage: int = 100
     _close_damage: int = 50
-    atack_range = 10
-    img_path = 'path/to/image'
+    attack_range: int = 10
+    _img_path = 'path/to/image'

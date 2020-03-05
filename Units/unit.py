@@ -1,23 +1,27 @@
 from dataclasses import dataclass
-from MainModels.coordinates import Coordinates
+from model.coordinates import Coordinates
 
 
 @dataclass
 class Unit(Coordinates):
     player_id: int
+    is_dead: bool = False
 
-    def take_damage(self, damage: int):
-        self._hp -= damage
-        return
+    def _take_damage(self, damage: int):
+        self._hp = max(self._hp - damage, 0)
 
-    def give_damage(self, other):
-        other.take_damage(self._get_damage(other))
-        return
+    def hit_enemy(self, other):
+        other._take_damage(self._get_damage(other))
 
     def _get_damage(self, other=None):
         return self._damage
 
-    def move(self, coordinates):
-        self.x = coordinates.x
-        self.y = coordinates.y
-        return
+    def move(self, x, y):
+        self.x = x
+        self.y = y
+
+    def death(self):
+        self.is_dead = True
+        self.attack_range = 0
+        self.move_range = 0
+        print('I\'m dead')

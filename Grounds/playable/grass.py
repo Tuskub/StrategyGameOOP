@@ -5,4 +5,4 @@ from grounds.ground import Ground
 @dataclass
 class Grass(Ground):
     _playble_field = True
-    pass
+    _img_path: str = 'path/to/img'

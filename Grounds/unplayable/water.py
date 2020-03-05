@@ -5,4 +5,4 @@ from grounds.ground import Ground
 @dataclass
 class Water(Ground):
     _playble_field = False
-    pass
+    _img_path: str = 'path/to/img'

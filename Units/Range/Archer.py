@@ -8,5 +8,5 @@ class Archer(Range):
     move_range: int = 3
     _close_damage: int = 25
     _damage: int = 50
-    atack_range = 5
-    img_path = 'path/to/image'
+    attack_range: int = 5
+    _img_path = 'path/to/image'
