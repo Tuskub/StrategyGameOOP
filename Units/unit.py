@@ -1,11 +1,12 @@
 from dataclasses import dataclass
-from model.coordinates import Coordinates
+from mainclass.coordinates import Coordinates
+from constants.unitsconst import IS_DEAD
 
 
 @dataclass
 class Unit(Coordinates):
     player_id: int
-    is_dead: bool = False
+    is_dead: bool = IS_DEAD
 
     def _take_damage(self, damage: int):
         self._hp = max(self._hp - damage, 0)

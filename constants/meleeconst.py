@@ -1,0 +1,1 @@
+ATTACK_RANGE = 1

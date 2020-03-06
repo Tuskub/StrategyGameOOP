@@ -1,4 +1,4 @@
-from model.map import Map
+from mainclass.map import Map
 from grounds.playable.grass import Grass
 from grounds.unplayable.water import Water
 from units.melee.horseman import Hourseman
@@ -24,3 +24,4 @@ print(hourseman)
 unit_list = [swordsman, archer, catapult, hourseman]
 map = Map(grass_list, unit_list)
 gc = GameControl(map)
+print(archer.get_coordinates() == (0, 0))

@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from units.range_unit import Range
+from constants.catapultconst import HP, MOVE_RANGE, CLOSE_DAMAGE, DAMAGE, ATTACK_RANGE # noqa
 
 
 @dataclass

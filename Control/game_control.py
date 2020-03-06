@@ -1,6 +1,6 @@
 from math import fabs
 from dataclasses import dataclass
-from model.map import Map
+from mainclass.map import Map
 
 
 @dataclass

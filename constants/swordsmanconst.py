@@ -1,0 +1,3 @@
+HP = 100
+MOVE_RANGE = 5
+DAMAGE = 50

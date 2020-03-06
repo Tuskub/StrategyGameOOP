@@ -1,10 +1,11 @@
 from dataclasses import dataclass
 from units.melee_unit import Melee
+from constants.hoursemanconst import HP, MOVE_RANGE, DAMAGE
 
 
 @dataclass
 class Hourseman(Melee):
-    _hp: int = 200
-    move_range: int = 10
-    _damage: int = 75
+    _hp: int = HP
+    move_range: int = MOVE_RANGE
+    _damage: int = DAMAGE
     img_path = 'path/to/image'
