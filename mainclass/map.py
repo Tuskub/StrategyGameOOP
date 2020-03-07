@@ -13,3 +13,9 @@ class Map:
             if not_playable_field:
                 return False
         return True
+
+    def is_free_field(self, x, y):
+        for u in self.units:
+            if u.x == x and u.y == y:
+                return False
+        return True
