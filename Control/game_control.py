@@ -1,4 +1,3 @@
-from math import fabs
 from dataclasses import dataclass
 from mainclass.map import Map
 
@@ -22,15 +21,6 @@ class GameControl:
             return False
         return True
 
-    def _can_unit_attack(self, selected, target):
-        if selected.player_id == target.player_id:
-            return False
-        if target.is_dead:
-            return False
-        dx = fabs(selected.x - target.x)
-        dy = fabs(selected.y - target.y)
-        return dx <= selected.attack_range and dy <= selected.attack_range
-
     def move_unit(self, unit, x, y):
         if not self._can_unit_move(unit, x, y):
             return
@@ -38,7 +28,7 @@ class GameControl:
         return
 
     def attack_unit(self, selected, target):
-        if not self._can_unit_attack(selected, target):
+        if not selected.can_attack(target):
             return
         selected.hit_enemy(target)
         if target._hp == 0:

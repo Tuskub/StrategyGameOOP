@@ -31,3 +31,12 @@ class Unit(Coordinates):
         out_of_range = (fabs(self.x - x) > self.move_range or
                         fabs(self.y - y) > self.move_range)
         return out_of_range
+
+    def can_attack(self, other):
+        if self.player_id == other.player_id:
+            return False
+        if other.is_dead:
+            return False
+        dx = fabs(self.x - other.x)
+        dy = fabs(self.y - other.y)
+        return dx <= self.attack_range and dy <= self.attack_range
