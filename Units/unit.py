@@ -1,3 +1,4 @@
+from math import fabs
 from dataclasses import dataclass
 from mainclass.coordinates import Coordinates
 from constants.unitsconst import IS_DEAD
@@ -21,8 +22,12 @@ class Unit(Coordinates):
         self.x = x
         self.y = y
 
-    def death(self):
+    def die(self):
         self.is_dead = True
         self.attack_range = 0
         self.move_range = 0
-        print('I\'m dead')
+
+    def is_out_of_move_range(self, x, y):
+        out_of_range = (fabs(self.x - x) > self.move_range or
+                        fabs(self.y - y) > self.move_range)
+        return out_of_range

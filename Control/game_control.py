@@ -8,8 +8,7 @@ class GameControl:
     map: Map
 
     def _can_unit_move(self, unit, x, y):
-        out_of_range = (fabs(unit.x - x) > unit.move_range or
-                        fabs(unit.y - y) > unit.move_range)
+        out_of_range = unit.is_out_of_move_range(x, y)
         if out_of_range:
             return False
         for g in self.map.grounds:
