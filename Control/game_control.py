@@ -11,11 +11,9 @@ class GameControl:
         out_of_range = unit.is_out_of_move_range(x, y)
         if out_of_range:
             return False
-        for g in self.map.grounds:
-            not_playable_field = ((not g.get_is_playble_field()) and
-                                  g.x == x and g.y == y)
-            if not_playable_field:
-                return False
+        playable_field = self.map.is_playable_field(x, y)
+        if not playable_field:
+            return False
         for u in self.map.units:
             if u.x == x and u.y == y:
                 return False

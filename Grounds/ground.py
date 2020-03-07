@@ -5,6 +5,5 @@ from mainclass.coordinates import Coordinates
 @dataclass
 class Ground(Coordinates):
 
-    @classmethod
-    def get_is_playble_field(cls):
-        return cls._playble_field
+    def get_playable_field(self):
+        return self._playable_field
