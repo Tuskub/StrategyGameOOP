@@ -5,9 +5,9 @@ from constants.archerconst import HP, MOVE_RANGE, CLOSE_DAMAGE, DAMAGE, ATTACK_R
 
 @dataclass
 class Archer(Range):
+    attack_range: int = ATTACK_RANGE
     _hp: int = HP
     move_range: int = MOVE_RANGE
-    _close_damage: int = CLOSE_DAMAGE
     _damage: int = DAMAGE
-    attack_range: int = ATTACK_RANGE
+    _close_damage: int = CLOSE_DAMAGE
     _img_path = 'path/to/image'

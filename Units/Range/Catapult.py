@@ -5,9 +5,9 @@ from constants.catapultconst import HP, MOVE_RANGE, CLOSE_DAMAGE, DAMAGE, ATTACK
 
 @dataclass
 class Catapult(Range):
+    attack_range: int = 10
     _hp: int = 75
     move_range: int = 1
     _damage: int = 100
     _close_damage: int = 50
-    attack_range: int = 10
     _img_path = 'path/to/image'
