@@ -70,12 +70,14 @@ class TestMoveOnEmpty():
         (12, 7, True)
     )
 
-    move_ids = ['Test(Coordinates({},{}), answer = {})'.format(
-                t[0], t[1], t[2])
-                for t in archer_test_cases]
+    def make_ids(some_tests):
+        ids = ['Coordinates({}, {}), answer = {}'.format(
+               t[0], t[1], t[2]) for t in some_tests]
+        return ids
 
     @pytest.mark.parametrize('test_x, test_y, answer',
-                             archer_test_cases, ids=move_ids)
+                             archer_test_cases,
+                             ids=make_ids(archer_test_cases))
     def test_archer(self, test_x, test_y, answer):
         map = Map(list(), [self.archer])
         gc = GameControl(map)
@@ -83,7 +85,8 @@ class TestMoveOnEmpty():
         assert answer == can_move
 
     @pytest.mark.parametrize('test_x, test_y, answer',
-                             catapult_test_cases, ids=move_ids)
+                             catapult_test_cases,
+                             ids=make_ids(catapult_test_cases))
     def test_catapult(self, test_x, test_y, answer):
         map = Map(list(), [self.catapult])
         gc = GameControl(map)
@@ -91,7 +94,8 @@ class TestMoveOnEmpty():
         assert answer == can_move
 
     @pytest.mark.parametrize('test_x, test_y, answer',
-                             horseman_test_cases, ids=move_ids)
+                             horseman_test_cases,
+                             ids=make_ids(horseman_test_cases))
     def test_horseman(self, test_x, test_y, answer):
         map = Map(list(), [self.horseman])
         gc = GameControl(map)
@@ -99,7 +103,8 @@ class TestMoveOnEmpty():
         assert answer == can_move
 
     @pytest.mark.parametrize('test_x, test_y, answer',
-                             swordsman_test_cases, ids=move_ids)
+                             swordsman_test_cases,
+                             ids=make_ids(swordsman_test_cases))
     def test_swordsman(self, test_x, test_y, answer):
         map = Map(list(), [self.swordsman])
         gc = GameControl(map)
