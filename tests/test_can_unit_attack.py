@@ -5,7 +5,7 @@ from units.melee.horseman import Horseman
 from units.melee.swordsman import Swordsman
 
 
-class TestUnitAttack():
+class TestCanUnitAttack():
 
     START_POSITION_X = 10
     START_POSITION_Y = 10
@@ -96,7 +96,7 @@ class TestUnitAttack():
         assert swordsman.can_attack(enemy) == answer
 
 
-class TestAttackFriend():
+class TestCanAttackFriend():
 
     START_POSITION_X = 10
     START_POSITION_Y = 10
