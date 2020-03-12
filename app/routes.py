@@ -22,7 +22,10 @@ ground_list = [
 ]
 
 unit_list = [
-    Archer(2, 1, 1)
+    Archer(2, 1, 1),
+    Catapult(1, 3, 1),
+    Horseman(3, 2, 1),
+    Swordsman(3, 3, 1)
 ]
 
 map = Map(ground_list, unit_list)
