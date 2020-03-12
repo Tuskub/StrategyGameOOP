@@ -49,7 +49,6 @@ body {
 </style>
 </head>
 <body>
-  <h1>Grid Test</h1>
   <form style="font-family: 'Nunito', sans-serif; color: #333; font-size: 20px;" action="" method="post" novalidate>
     {{ form.hidden_tag() }}
     {{ form.unit.label }}
@@ -63,8 +62,17 @@ body {
     {% for error in form.target.errors %}
       <span style="color: red;">[{{ error }}]</span>
     {% endfor %}
-    <p>{{ form.submit() }}</p>
+    {{ form.submit() }}
   </form>
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <ul>
+      {% for message in messages %}
+      <li style="color: red; font-size: 15px;">{{ message }}</li>
+      {% endfor %}
+  </ul>
+  {% endif %}
+  {% endwith %}  
   <div class="container">
     <div class="gamemap">
       {% for cell in map.grounds %}
