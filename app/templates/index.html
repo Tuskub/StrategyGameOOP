@@ -78,7 +78,7 @@ body {
       {% for cell in map.grounds %}
         <div style="background-image: url('{{ cell.img_path }}'); grid-column: {{ cell.y }}; grid-row: {{ cell.x }};" class="gamemap__item" >
           {% if map.get_unit_by_point(cell.x, cell.y) != None %}
-            <img src="{{ map.get_unit_by_point(cell.x, cell.y).img_path }}" class="gamemap__img"/>
+            <img src="{{ map.get_unit_by_point(cell.x, cell.y).get_img_path() }}" class="gamemap__img"/>
           {% endif %}  
         </div>
       {% endfor %}
