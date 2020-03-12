@@ -10,4 +10,4 @@ class Archer(Range):
     move_range: int = MOVE_RANGE
     _damage: int = DAMAGE
     _close_damage: int = CLOSE_DAMAGE
-    _img_path = 'path/to/image'
+    img_path = 'static/img/ArcherA.png'

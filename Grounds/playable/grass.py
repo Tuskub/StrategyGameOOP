@@ -6,4 +6,4 @@ from constants.grassconts import PLAYABLE_FIELD
 @dataclass
 class Grass(Ground):
     _playable_field: bool = PLAYABLE_FIELD
-    _img_path: str = 'path/to/img'
+    img_path: str = 'static/img/GrassA.png'

@@ -19,3 +19,10 @@ class Map:
             if u.x == x and u.y == y:
                 return False
         return True
+
+    def get_unit_by_point(self, x, y):
+        coord = (x, y)
+        for u in self.units:
+            if u.get_coordinates() == coord:
+                return u
+        return None

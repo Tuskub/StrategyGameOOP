@@ -10,4 +10,4 @@ class Catapult(Range):
     move_range: int = 1
     _damage: int = 100
     _close_damage: int = 50
-    _img_path = 'path/to/image'
+    img_path = 'static/img/CatapultA.png'

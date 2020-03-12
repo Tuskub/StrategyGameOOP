@@ -6,4 +6,4 @@ from constants.waterconst import PLAYABLE_FIELD
 @dataclass
 class Water(Ground):
     _playable_field: bool = PLAYABLE_FIELD
-    _img_path: str = 'path/to/img'
+    img_path: str = 'static/img/Water.png'

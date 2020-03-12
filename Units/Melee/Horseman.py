@@ -8,4 +8,4 @@ class Horseman(Melee):
     _hp: int = HP
     move_range: int = MOVE_RANGE
     _damage: int = DAMAGE
-    img_path = 'path/to/image'
+    img_path = 'static/img/HorsemanA.png'
