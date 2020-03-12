@@ -8,4 +8,9 @@ class Horseman(Melee):
     _hp: int = HP
     move_range: int = MOVE_RANGE
     _damage: int = DAMAGE
-    img_path = 'static/img/HorsemanA.png'
+
+    def get_img_path(self):
+        if self.player_id % 2 == 1:
+            return 'static/img/HorsemanA.png'
+        else:
+            return 'static/img/HorsemanB.png'

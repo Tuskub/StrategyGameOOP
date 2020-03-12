@@ -10,4 +10,9 @@ class Archer(Range):
     move_range: int = MOVE_RANGE
     _damage: int = DAMAGE
     _close_damage: int = CLOSE_DAMAGE
-    img_path = 'static/img/ArcherA.png'
+
+    def get_img_path(self):
+        if self.player_id % 2 == 1:
+            return 'static/img/ArcherA.png'
+        else:
+            return 'static/img/ArcherB.png'

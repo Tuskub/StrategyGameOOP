@@ -9,3 +9,9 @@ class Swordsman(Melee):
     move_range: int = MOVE_RANGE
     _damage: int = DAMAGE
     img_path = 'static/img/SwordsmanA.png'
+
+    def get_img_path(self):
+        if self.player_id % 2 == 1:
+            return 'static/img/SwordsmanA.png'
+        else:
+            return 'static/img/SwordsmanB.png'
