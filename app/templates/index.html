@@ -29,8 +29,8 @@ body {
 
 .gamemap {
   display: grid;
-  grid-template-columns: repeat(20, 3fr);
-  grid-template-rows: repeat(20, 2.5vw); 
+  grid-template-columns: repeat(18, 3fr);
+  grid-template-rows: repeat(18, 2.5vw); 
 }
 
 .gamemap__img {
@@ -49,8 +49,22 @@ body {
 </style>
 </head>
 <body>
-
   <h1>Grid Test</h1>
+  <form style="font-family: 'Nunito', sans-serif; color: #333; font-size: 20px;" action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    {{ form.unit.label }}
+    {{ form.unit(size=32) }}
+    {% for error in form.unit.errors %}
+      <span style="color: red;">[{{ error }}]</span>
+    {% endfor %}
+    {{ form.action }}
+    {{ form.target.label }}
+    {{ form.target(size=32) }}
+    {% for error in form.target.errors %}
+      <span style="color: red;">[{{ error }}]</span>
+    {% endfor %}
+    <p>{{ form.submit() }}</p>
+  </form>
   <div class="container">
     <div class="gamemap">
       {% for cell in map.grounds %}
