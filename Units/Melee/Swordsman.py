@@ -11,7 +11,10 @@ class Swordsman(Melee):
     img_path = 'static/img/SwordsmanA.png'
 
     def get_img_path(self):
+        if self._hp == 0:
+            return 'static/img/Grave.png'
         if self.player_id % 2 == 1:
             return 'static/img/SwordsmanA.png'
         else:
             return 'static/img/SwordsmanB.png'
+        

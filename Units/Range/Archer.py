@@ -12,6 +12,8 @@ class Archer(Range):
     _close_damage: int = CLOSE_DAMAGE
 
     def get_img_path(self):
+        if self._hp == 0:
+            return 'static/img/Grave.png'
         if self.player_id % 2 == 1:
             return 'static/img/ArcherA.png'
         else:
