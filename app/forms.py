@@ -16,7 +16,7 @@ class ActionForm(FlaskForm):
         for num in nums:
             if int(num) < 1 or int(num) >= 19:
                 out_of_map = True
-        if not re.match(r'^[[(]?\d{1,2}[,\s][\s]?\d{1,2}[])]?$', unit.data) or out_of_map:
+        if not re.match(r'^[[(]?\d{1,2}[,\s][\s]?\d{1,2}[])]?$', unit.data) or out_of_map: # noqa
             raise ValidationError('Введены неверные координаты.')
 
     def validate_target(self, target):
@@ -25,5 +25,5 @@ class ActionForm(FlaskForm):
         for num in nums:
             if int(num) < 1 or int(num) >= 19:
                 out_of_map = True
-        if not re.match(r'^[[(]?\d{1,2}[,\s][\s]?\d{1,2}[])]?$', target.data) or out_of_map:
+        if not re.match(r'^[[(]?\d{1,2}[,\s][\s]?\d{1,2}[])]?$', target.data) or out_of_map: # noqa
             raise ValidationError('Введены неверные координаты.')

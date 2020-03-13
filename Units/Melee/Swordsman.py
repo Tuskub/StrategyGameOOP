@@ -17,4 +17,3 @@ class Swordsman(Melee):
             return 'static/img/SwordsmanA.png'
         else:
             return 'static/img/SwordsmanB.png'
-        

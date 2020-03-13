@@ -2,35 +2,11 @@ import re
 from flask import render_template, flash, redirect
 from app import app
 from app.forms import ActionForm
-from units.range.archer import Archer
-from units.range.catapult import Catapult
-from units.melee.horseman import Horseman
-from units.melee.swordsman import Swordsman
-from grounds.playable.grass import Grass
-from grounds.unplayable.water import Water
+from constants.gamemap import generate_map
 from mainclass.map import Map
 from control.game_control import GameControl
 
-
-ground_list = [
-    Water(1, 1,),
-    Water(1, 2,),
-    Grass(1, 3,),
-    Grass(2, 1,),
-    Grass(2, 2,),
-    Water(2, 3,),
-    Grass(3, 1,),
-    Grass(3, 2,),
-    Grass(3, 3,)
-]
-
-unit_list = [
-    Archer(2, 1, 2),
-    Catapult(1, 3, 1),
-    Horseman(3, 2, 1),
-    Swordsman(3, 3, 1)
-]
-
+ground_list, unit_list = generate_map()
 map = Map(ground_list, unit_list)
 gc = GameControl(map)
 
