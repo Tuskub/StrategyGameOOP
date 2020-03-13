@@ -19,17 +19,17 @@ body {
   font-family: "Nunito", sans-serif;
   color: #333;
   font-weight: 300;
-  /* line-height: 1.6;  */
 }
 
 .container {
   width: 65%;
   margin: 0 auto; 
+
 }
 
 .gamemap {
   display: grid;
-  grid-template-columns: repeat(18, 3fr);
+  grid-template-columns: repeat(18, 2.5fr);
   grid-template-rows: repeat(18, 2.5vw); 
 }
 
@@ -72,9 +72,9 @@ body {
   {% endif %}
   {% endwith %}  
   <div class="container">
-    <div class="gamemap">
+    <div class="gamemap" id='grid'>
       {% for cell in map.grounds %}
-        <div style="background-image: url('{{ cell.img_path }}'); grid-column: {{ cell.y }}; grid-row: {{ cell.x }};" class="gamemap__item" >
+        <div data-coordinates="{{ cell.x }} {{ cell.y }}" style="background-image: url('{{ cell.img_path }}'); grid-column: {{ cell.y }}; grid-row: {{ cell.x }};" class="gamemap__item" >
           {% if map.get_unit_by_point(cell.x, cell.y) != None %}
             <img src="{{ map.get_unit_by_point(cell.x, cell.y).get_img_path() }}" class="gamemap__img"/>
           {% endif %}  
@@ -82,5 +82,26 @@ body {
       {% endfor %}
     </div>
   </div>
+  <script>
+    let past = {
+      background: null,
+      coordinates: null
+    }
+    document.getElementById('unit').addEventListener('input', function(e){
+      if(!(/\d{1,2}\s\d{1,2}/).test(this.value))
+        return;
+      let past_cell = document.querySelector(`div[data-coordinates="${past.coordinates}"]`)
+      if(past_cell != null){
+        past_cell.style.backgroundImage = `${past.background}`;
+      }
+      const grid = document.getElementById('grid')
+      let test = document.querySelector(`div[data-coordinates="${this.value}"]`)
+      past.background = test.style.backgroundImage
+      test.style.backgroundImage = 'url(/static/img/GrassB.png)';
+      console.log(test.style.background)
+      console.log(past.background)
+      past.coordinates = this.value;
+    });
+  </script>
 </body>
 </html>
