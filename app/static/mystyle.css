@@ -1,0 +1,72 @@
+.container{
+  width: 100%;
+  max-width: 1450px;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+.container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.logo{
+  float: left;
+}
+.new-game{
+  float: right;
+}
+.col-1-8-r{
+  height: 100%;
+  float: right;
+  width: 16.66%;
+}
+.col-1-8-l{
+  height: 100%;
+  width: 16.6%;
+  float: left;
+}
+.col-6-8{
+  border-style: solid;
+  border-color: black;
+  border-width: 0px 0.5px 0px 0.5px;
+  height: 100%;
+  width: 66.6%;
+  float: left;
+}
+
+.playercol{
+  list-style-type: none;
+  padding: 0px;
+}
+
+.playercol li{
+  display: inline-block;
+  width: 100%;
+}
+
+.gamemap {
+  display: grid;
+  grid-template-columns: repeat(24, 40px);
+  grid-template-rows: repeat(13, 40px); 
+}
+
+.gamemap__img {
+  height: 100%;
+  width: 100%;
+}
+
+.gamemap__item {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  border: 1px solid black;
+}
+.icons {
+  width: 20px;
+  height: 20px;
+}
+.unit-stats{
+  width: 33.333%;
+  padding: 0px;
+  float: left;
+}
