@@ -40,3 +40,9 @@ class Unit(Coordinates):
         dx = fabs(self.x - other.x)
         dy = fabs(self.y - other.y)
         return dx <= self.attack_range and dy <= self.attack_range
+
+    def get_stats(self):
+        return {'hp': self._hp,
+                'damage': self._damage,
+                'move': self.move_range,
+                'attack': self.attack_range}

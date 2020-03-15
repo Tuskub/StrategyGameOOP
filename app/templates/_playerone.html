@@ -1,9 +1,9 @@
 {% block content %}
-<ul class="playercol">
+<ul id="playerone_units" class="playercol">
   {% for unit in map.units %}
     {% if unit.player_id == 1 %}
     {% set unit_stats = unit.get_stats() %}
-    <li style="font-size: 20px; text-align: center;">
+    <li data-coordinates="{{ unit.x }} {{ unit.y }}" style="font-size: 20px; text-align: center;" >
       <img src="{{ unit.get_img_path() }}" style="float: left;"/>
         <ul class="unit-stats">
           <li>

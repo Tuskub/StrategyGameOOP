@@ -31,7 +31,7 @@ def index():
         func = switch.get(form.action.data)
         func(selected_x, selected_y, target_x, target_y)
         return redirect('/')
-    return render_template('index.html', title='Home', map=map, form=form)
+    return render_template('base.html', title='Home', map=map, form=form)
 
 
 def move(selected_x, selected_y, target_x, target_y):
