@@ -1,0 +1,12 @@
+{% block content %}
+    <div class="gamemap" id='grid'>
+    {% for cell in map.grounds %}
+    <div data-coordinates="{{ cell.x }} {{ cell.y }}" style="background-image: url('{{ cell.img_path }}'); grid-column: {{ cell.y }}; grid-row: {{ cell.x }};" class="gamemap__item" >
+      {% set unit_in_cell = map.get_unit_by_point(cell.x, cell.y) %}
+      {% if unit_in_cell != None %}
+        <img src="{{ unit_in_cell.get_img_path() }}" class="gamemap__img"/>
+      {% endif %}
+    </div>
+   {% endfor %}
+    </div>
+{% endblock %}

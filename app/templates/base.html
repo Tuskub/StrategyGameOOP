@@ -1,0 +1,137 @@
+<html>
+  <head>
+    <title>Minecraft strategy</title>
+    <style>
+      .container{
+        width: 100%;
+        max-width: 1450px;
+        margin: 0 auto;
+        border: 1px solid black;
+      }
+      .container:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      .logo{
+        float: left;
+      }
+      .new-game{
+        float: right;
+      }
+      .col-1-8-r{
+        height: 100%;
+        float: right;
+        width: 16.66%;
+      }
+      .col-1-8-l{
+        height: 100%;
+        width: 16.6%;
+        float: left;
+      }
+      .col-6-8{
+        border-style: solid;
+        border-color: black;
+        border-width: 0px 0.5px 0px 0.5px;
+        height: 100%;
+        width: 66.6%;
+        float: left;
+      }
+      .playercol{
+        list-style-type: none;
+        padding: 0px;
+      }
+      .playercol li{
+        display: inline-block;
+        width: 100%;
+      }
+      .gamemap {
+        display: grid;
+        grid-template-columns: repeat(24, 40px);
+        grid-template-rows: repeat(13, 40px); 
+        }
+
+        .gamemap__img {
+          width: 100%;
+          height: 100%;
+        }
+
+        .gamemap__item {
+          display: table-cell;
+          vertical-align: middle;
+          text-align: center;
+          border: 1px solid black;
+        }
+        .icons {
+          width: 20px;
+          height: 20px;
+        }
+        .unit-stats{
+          width: 33.333%;
+          padding: 0px;
+          float: left;
+        }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <img src="static/img/ArcherA.png" class="logo"/>
+        <a href="/" class="new-game">Новая игра</a>
+      </div>
+    </header>
+    <div class="main">
+      <div class="container">
+        <div class="row">
+          <div class="col-1-8-l">
+            <ul class="playercol">
+              {% include '_playerone.html' %}
+            </ul>
+          </div>
+          <div class="col-6-8">
+            <form style="font-family: 'Nunito', sans-serif; color: #333; font-size: 20px;" action="" method="post" novalidate>
+              {{ form.hidden_tag() }}
+              {{ form.unit.label }}
+              {{ form.unit(size=32, autocomplete="off") }}
+              {% for error in form.unit.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+              {{ form.action }}
+              {{ form.target.label }}
+              {{ form.target(size=32, autocomplete="off") }}
+              {% for error in form.target.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+              {{ form.submit() }}
+            </form>
+            {% include '_map.html' %}
+          </div>
+          <div class="col-1-8-r">
+            {% include '_playertwo.html' %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let past = {
+      background: null,
+      coordinates: null
+      }
+      document.getElementById('unit').addEventListener('input', function(e){
+      if(!(/^\d{1,2}\s\d{1,2}$/).test(this.value))
+        return;
+      let past_cell = document.querySelector(`div[data-coordinates="${past.coordinates}"]`)
+      if(past_cell != null){
+        past_cell.style.backgroundImage = `${past.background}`;
+      }
+      const grid = document.getElementById('grid')
+      let test = document.querySelector(`div[data-coordinates="${this.value}"]`)
+      past.background = test.style.backgroundImage
+      test.style.backgroundImage = 'url(/static/img/GrassB.png)';
+      console.log(test.style.background)
+      console.log(past.background)
+      past.coordinates = this.value;
+      });
+    </script>
+  </body>
+</html>
