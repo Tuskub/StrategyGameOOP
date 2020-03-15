@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from units.melee_unit import Melee
-from constants.horsemanconst import HP, MOVE_RANGE, DAMAGE
+from constants.horsemanconst import HP, MOVE_RANGE, DAMAGE, IMG_PLAYER_1_PATH, IMG_PLAYER_2_PATH # noqa
 
 
 @dataclass
@@ -11,8 +11,8 @@ class Horseman(Melee):
 
     def get_img_path(self):
         if self._hp == 0:
-            return 'static/img/Grave.png'
+            return 'static/img/textures/Grave.png'
         if self.player_id % 2 == 1:
-            return 'static/img/HorsemanA.png'
+            return IMG_PLAYER_1_PATH
         else:
-            return 'static/img/HorsemanB.png'
+            return IMG_PLAYER_2_PATH

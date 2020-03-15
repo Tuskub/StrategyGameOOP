@@ -27,6 +27,22 @@ templates_map = [
     'gwgggggggggggggggg'
 ]
 
+new_map = [
+    'ggggggggggggggggwggggggg',
+    'gggggggcggggggggwwgggggg',
+    'ggcggaHhgggggggggggggggg',
+    'ggagggagsggggggggggggggg',
+    'ggggaggsgggggggggggggggg',
+    'wwwwwwwwgggggggggggggggg',
+    'gggggggggggggggggggggggg',
+    'gggggggggggggggggggggggg',
+    'wwwwwggwwwwggwwwwwgggggg',
+    'wwwwwggwwwwggwwwwgggHggw',
+    'ggggggggggggggggAggCgSgg',
+    'gggggggggggggggggggAgSgg',
+    'ggggggggggwwwwwwwggggggw'
+]
+
 ground_list = list()
 unit_list = list()
 
@@ -53,30 +69,11 @@ def _create_unit(symbol, x, y):
 
 
 def generate_map():
-    for i in range(18):
-        for j in range(18):
-            ground = _create_ground(templates_map[i][j], i, j)
+    for i in range(13):
+        for j in range(24):
+            ground = _create_ground(new_map[i][j], i, j)
             ground_list.append(ground)
-            unit = _create_unit(templates_map[i][j], i, j)
+            unit = _create_unit(new_map[i][j], i, j)
             if unit is not None:
                 unit_list.append(unit)
     return ground_list, unit_list
-
-# ground_list = [
-#     Water(1, 1,),
-#     Water(1, 2,),
-#     Grass(1, 3,),
-#     Grass(2, 1,),
-#     Grass(2, 2,),
-#     Water(2, 3,),
-#     Grass(3, 1,),
-#     Grass(3, 2,),
-#     Grass(3, 3,)
-# ]
-
-# unit_list = [
-#     Archer(2, 1, 1),
-#     Catapult(1, 3, 2),
-#     Horseman(3, 2, 2),
-#     Swordsman(3, 3, 2)
-# ]

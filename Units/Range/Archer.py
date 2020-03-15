@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from units.range_unit import Range
-from constants.archerconst import HP, MOVE_RANGE, CLOSE_DAMAGE, DAMAGE, ATTACK_RANGE # noqa
+from constants.archerconst import HP, MOVE_RANGE, CLOSE_DAMAGE, DAMAGE, ATTACK_RANGE, IMG_PLAYER_1_PATH, IMG_PLAYER_2_PATH # noqa
 
 
 @dataclass
@@ -13,8 +13,8 @@ class Archer(Range):
 
     def get_img_path(self):
         if self._hp == 0:
-            return 'static/img/Grave.png'
+            return 'static/img/textures/Grave.png'
         if self.player_id % 2 == 1:
-            return 'static/img/ArcherA.png'
+            return IMG_PLAYER_1_PATH
         else:
-            return 'static/img/ArcherB.png'
+            return IMG_PLAYER_2_PATH
