@@ -50,13 +50,13 @@ body {
   <form style="font-family: 'Nunito', sans-serif; color: #333; font-size: 20px;" action="" method="post" novalidate>
     {{ form.hidden_tag() }}
     {{ form.unit.label }}
-    {{ form.unit(size=32) }}
+    {{ form.unit(size=32, autocomplete="off") }}
     {% for error in form.unit.errors %}
       <span style="color: red;">[{{ error }}]</span>
     {% endfor %}
     {{ form.action }}
     {{ form.target.label }}
-    {{ form.target(size=32) }}
+    {{ form.target(size=32, autocomplete="off") }}
     {% for error in form.target.errors %}
       <span style="color: red;">[{{ error }}]</span>
     {% endfor %}
@@ -83,24 +83,40 @@ body {
     </div>
   </div>
   <script>
-    let past = {
+    let past_unit = {
+      background: null,
+      coordinates: null
+    }
+    let past_target = {
       background: null,
       coordinates: null
     }
     document.getElementById('unit').addEventListener('input', function(e){
       if(!(/\d{1,2}\s\d{1,2}/).test(this.value))
         return;
-      let past_cell = document.querySelector(`div[data-coordinates="${past.coordinates}"]`)
+      let past_cell = document.querySelector(`div[data-coordinates="${past_unit.coordinates}"]`)
       if(past_cell != null){
-        past_cell.style.backgroundImage = `${past.background}`;
+        past_cell.style.backgroundImage = `${past_unit.background}`;
       }
       const grid = document.getElementById('grid')
-      let test = document.querySelector(`div[data-coordinates="${this.value}"]`)
-      past.background = test.style.backgroundImage
-      test.style.backgroundImage = 'url(/static/img/GrassB.png)';
-      console.log(test.style.background)
-      console.log(past.background)
+      let unit = document.querySelector(`div[data-coordinates="${this.value}"]`)
+      past.background = unit.style.backgroundImage
+      unit.style.backgroundImage = 'url(/static/img/textures/GrassB.png)';
       past.coordinates = this.value;
+    });
+
+    document.getElementById('target').addEventListener('input', function(e){
+      if(!(/\d{1,2}\s\d{1,2}/).test(this.value))
+        return;
+      let past_cell = document.querySelector(`div[data-coordinates="${past_target.coordinates}"]`)
+      if(past_cell != null){
+        past_cell.style.backgroundImage = `${past_target.background}`;
+      }
+      const grid = document.getElementById('grid')
+      let target = document.querySelector(`div[data-coordinates="${this.value}"]`)
+      past_target.background = target.style.backgroundImage
+      target.style.backgroundImage = 'url(/static/img/textures/GrassB.png)';
+      past_target.coordinates = this.value;
     });
   </script>
 </body>

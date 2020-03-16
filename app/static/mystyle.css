@@ -39,7 +39,36 @@
 }
 
 .playercol li{
-  display: inline-block;
+  display: flex;
+  color: black;
+  align-items: center;
+  font-weight: bold;
+  justify-content: center;
+  text-shadow: 
+		-0   -2px 0   #FFFFFF,
+		 0   -2px 0   #FFFFFF,
+		-0    2px 0   #FFFFFF,
+		 0    2px 0   #FFFFFF,
+		-2px -0   0   #FFFFFF,
+		 2px -0   0   #FFFFFF,
+		-2px  0   0   #FFFFFF,
+		 2px  0   0   #FFFFFF,
+		-1px -2px 0   #FFFFFF,
+		 1px -2px 0   #FFFFFF,
+		-1px  2px 0   #FFFFFF,
+		 1px  2px 0   #FFFFFF,
+		-2px -1px 0   #FFFFFF,
+		 2px -1px 0   #FFFFFF,
+		-2px  1px 0   #FFFFFF,
+		 2px  1px 0   #FFFFFF,
+		-2px -2px 0   #FFFFFF,
+		 2px -2px 0   #FFFFFF,
+		-2px  2px 0   #FFFFFF,
+		 2px  2px 0   #FFFFFF,
+		-2px -2px 0   #FFFFFF,
+		 2px -2px 0   #FFFFFF,
+		-2px  2px 0   #FFFFFF,
+		 2px  2px 0   #FFFFFF;
   width: 100%;
 }
 
@@ -54,12 +83,24 @@
   width: 100%;
 }
 
-.gamemap__item {
+.gamemap__item-playable {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
   border: 1px solid black;
 }
+
+.gamemap__item-playable:hover {
+  background-image: url('/static/img/textures/GrassB.png') !important;
+}
+
+.gamemap__item-unplayable{
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  border: 1px solid black;
+}
+
 .icons {
   width: 20px;
   height: 20px;

@@ -1,117 +1,51 @@
 <html>
-  <head>
-    <title>Minecraft strategy</title>
-    <link />
-    <style type="text/css">
-      @import url(static/mystyle.css);
-    </style>
-  </head>
-  <body>
-    <header>
-      <div class="container">
-        <img src="static/img/ArcherA.png" class="logo"/>
-        <a href="/" class="new-game">Новая игра</a>
-      </div>
-    </header>
-    <div class="main">
-      <div class="container">
-        <div class="row">
-          <div class="col-1-8-l">
-            <ul class="playercol">
-              {% include '_playerone.html' %}
-            </ul>
-          </div>
-          <div class="col-6-8">
-            <form style="font-family: 'Nunito', sans-serif; color: #333; font-size: 20px;" action="" method="post" novalidate>
-              {{ form.hidden_tag() }}
-              {{ form.unit.label }}
-              {{ form.unit(size=32, autocomplete="off") }}
-              {% for error in form.unit.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-              {% endfor %}
-              {{ form.action }}
-              {{ form.target.label }}
-              {{ form.target(size=32, autocomplete="off") }}
-              {% for error in form.target.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-              {% endfor %}
-              {{ form.submit() }}
-            </form>
-            {% include '_map.html' %}
-          </div>
-          <div class="col-1-8-r">
-            {% include '_playertwo.html' %}
-          </div>
+
+<head>
+  <title>Minecraft strategy</title>
+  <link type="text/css" rel="stylesheet" href="/static/mystyle.css" />
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <img src="static/img/ArcherA.png" class="logo" />
+      <a href="/" class="new-game">Новая игра</a>
+    </div>
+  </header>
+  <div class="main">
+    <div class="container">
+      <div class="row">
+        <div class="col-1-8-l">
+          <ul class="playercol">
+            {% include '_playerone.html' %}
+          </ul>
+        </div>
+        <div class="col-6-8">
+          <form style="font-family: 'Nunito', sans-serif; color: #333; font-size: 20px;" action="" method="post"
+            novalidate>
+            {{ form.hidden_tag() }}
+            {{ form.unit.label }}
+            {{ form.unit(size=32, autocomplete="off") }}
+            {% for error in form.unit.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            {{ form.action }}
+            {{ form.target.label }}
+            {{ form.target(size=32, autocomplete="off") }}
+            {% for error in form.target.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            {{ form.submit() }}
+          </form>
+          {% include '_map.html' %}
+        </div>
+        <div class="col-1-8-r">
+          {% include '_playertwo.html' %}
         </div>
       </div>
     </div>
-    <script>
-      let past_unit = {
-      background: null,
-      coordinates: null
-      }
-      let past_target = {
-      background: null,
-      coordinates: null
-      }
-      var event = new MouseEvent('mouseout', {
-        'view': window,
-        'bubbles': true,
-        'cancelable': true
-      });
-      playr_one_units = document.getElementById('playerone_units')
-      document.getElementById('unit').addEventListener('input', function(e){
-      if(!(/\d{1,2}\s\d{1,2}/).test(this.value) || past_target.coordinates == this.value)
-        return;
-      let past_cell = document.querySelector(`div[data-coordinates="${past_unit.coordinates}"]`)
-      if(past_cell != null){
-        past_cell.style.backgroundImage = `${past_unit.background}`;
-      }
-      const grid = document.getElementById('grid')
-      let unit = document.querySelector(`div[data-coordinates="${this.value}"]`)
-      past_unit.background = unit.style.backgroundImage
-      unit.style.backgroundImage = 'url(/static/img/textures/GrassB.png)';
-      past_unit.coordinates = this.value;
-      });
-
-      document.getElementById('target').addEventListener('input', function(e){
-      if(!(/\d{1,2}\s\d{1,2}/).test(this.value) || past_unit.coordinates == this.value)
-        return;
-      let past_cell = document.querySelector(`div[data-coordinates="${past_target.coordinates}"]`)
-      if(past_cell != null){
-        past_cell.style.backgroundImage = `${past_target.background}`;
-      }
-      const grid = document.getElementById('grid')
-      let target = document.querySelector(`div[data-coordinates="${this.value}"]`)
-      past_target.background = target.style.backgroundImage
-      target.style.backgroundImage = 'url(/static/img/textures/GrassB.png)';
-      past_target.coordinates = this.value;
-      });
-
-      for(let i = 0; i < playr_one_units.children.length; i++){
-        let unit = playr_one_units.children[i];
-        console.log(unit);
-        unit.addEventListener('mouseover', function(e){
-          let selected = document.querySelector(`div[data-coordinates="${unit.dataset.coordinates}"]`);
-          selected.style.backgroundImage = 'url(/static/img/textures/GrassB.png)';
-          unit.style.backgroundImage = 'url(/static/img/textures/GrassB.png)';
-        });
-        unit.addEventListener('mouseout', function(e){
-        if(document.getElementById('unit').value == unit.dataset.coordinates){
-          return;
-        }
-          let selected = document.querySelector(`div[data-coordinates="${unit.dataset.coordinates}"]`);
-          selected.style.backgroundImage = 'url(/static/img/textures/GrassA.png)';
-          unit.style.backgroundImage = null;
-        });
-        unit.addEventListener('click', function(e){
-          let selected = document.getElementById('unit');
-          selected.value = unit.dataset.coordinates;
-          for(let j = 0; j < playr_one_units.children.length; j++){
-            playr_one_units.children[j].dispatchEvent(event);
-          };
-        });
-      };
-    </script>
-  </body>
+  </div>
+  <script src="/static/script.js">
+  </script>
+</body>
 </html>
