@@ -32,11 +32,11 @@ def index():
         func = switch.get(form.action.data)
         func(selected_x, selected_y, target_x, target_y)
         fp_all_alive, fp_all_dead, sp_all_alive, sp_all_dead = map.end_game()
-        
+
         if (fp_all_dead or sp_all_dead) and (fp_all_alive or sp_all_alive):
             winner = 'Test'
-            return render_template('base.html', map=map, form=form, winner=winner)
-        
+            return redirect('/secret')
+
         if sp_all_dead:
             winner = 'Победил первый игрок!'
             return render_template('base.html', map=map, form=form, winner=winner)
@@ -47,6 +47,11 @@ def index():
 
         return redirect('/')
     return render_template('base.html', map=map, form=form, winner=winner)
+
+
+@app.route('/secret', methods=['GET', 'POST'])
+def video():
+    return render_template('secretend.html')
 
 
 def move(selected_x, selected_y, target_x, target_y):
