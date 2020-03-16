@@ -23,7 +23,7 @@ class ActionForm(FlaskForm):
         nums = re.findall(r'\d{1,2}', target.data)
         out_of_map = False
         for num in nums:
-            if int(num) < 1 or int(num) >= 19:
+            if int(num) < 1 or int(num) >= 24:
                 out_of_map = True
         if not re.match(r'^[[(]?\d{1,2}[,\s][\s]?\d{1,2}[])]?$', target.data) or out_of_map: # noqa
             raise ValidationError('Введены неверные координаты.')

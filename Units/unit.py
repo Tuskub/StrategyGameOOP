@@ -26,6 +26,7 @@ class Unit(Coordinates):
         self.is_dead = True
         self.attack_range = 0
         self.move_range = 0
+        self._damage = 0
 
     def is_out_of_move_range(self, x, y):
         out_of_range = (fabs(self.x - x) > self.move_range or

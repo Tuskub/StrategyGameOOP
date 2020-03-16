@@ -43,6 +43,22 @@ new_map = [
     'ggggggggggwwwwwwwggggggw'
 ]
 
+test_map = [
+    'ggggggggggggggggwggggggg',
+    'gggggggcggggggggwwgggggg',
+    'ggcggaHhgggggggggggggggg',
+    'ggagggagsggggggggggggggg',
+    'ggggaggsgggggggggggggggg',
+    'wwwwwwwwgggggggggggggggg',
+    'gggggggggggggggggggggggg',
+    'gggggggggggggggggggggggg',
+    'wwwwwggwwwwggwwwwwgggggg',
+    'wwwwwggwwwwggwwwwggggggw',
+    'gggggggggggggggggggggggg',
+    'gggggggggggggggggggggggg',
+    'ggggggggggwwwwwwwggggggw'
+]
+
 ground_list = list()
 unit_list = list()
 
@@ -71,9 +87,9 @@ def _create_unit(symbol, x, y):
 def generate_map():
     for i in range(13):
         for j in range(24):
-            ground = _create_ground(new_map[i][j], i, j)
+            ground = _create_ground(test_map[i][j], i, j)
             ground_list.append(ground)
-            unit = _create_unit(new_map[i][j], i, j)
+            unit = _create_unit(test_map[i][j], i, j)
             if unit is not None:
                 unit_list.append(unit)
     return ground_list, unit_list

@@ -15,6 +15,7 @@ gc = GameControl(map)
 @app.route('/index', methods=['GET', 'POST'])
 def index():
     form = ActionForm()
+    winner = ''
     if form.validate_on_submit():
         nums = re.findall(r'\d{1,2}', form.unit.data)
         selected_x = int(nums[0])
@@ -30,8 +31,22 @@ def index():
         }
         func = switch.get(form.action.data)
         func(selected_x, selected_y, target_x, target_y)
+        fp_all_alive, fp_all_dead, sp_all_alive, sp_all_dead = map.end_game()
+        
+        if (fp_all_dead or sp_all_dead) and (fp_all_alive or sp_all_alive):
+            winner = 'Test'
+            return render_template('base.html', map=map, form=form, winner=winner)
+        
+        if sp_all_dead:
+            winner = 'Победил первый игрок!'
+            return render_template('base.html', map=map, form=form, winner=winner)
+
+        if fp_all_dead:
+            winner = 'Победил второй игрок!'
+            return render_template('base.html', map=map, form=form, winner=winner)
+
         return redirect('/')
-    return render_template('base.html', title='Home', map=map, form=form)
+    return render_template('base.html', map=map, form=form, winner=winner)
 
 
 def move(selected_x, selected_y, target_x, target_y):

@@ -26,3 +26,22 @@ class Map:
             if u.get_coordinates() == coord:
                 return u
         return None
+
+    def end_game(self):
+        fp_all_alive = True
+        fp_all_dead = True
+        sp_all_dead = True
+        sp_all_alive = True
+
+        for unit in self.units:
+            if unit.player_id == 1:
+                if unit.is_dead is True:
+                    fp_all_alive = False
+                else:
+                    fp_all_dead = False
+            if unit.player_id == 2:
+                if unit.is_dead is True:
+                    sp_all_alive = False
+                else:
+                    sp_all_dead = False
+        return fp_all_alive, fp_all_dead, sp_all_alive, sp_all_dead
