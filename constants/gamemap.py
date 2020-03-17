@@ -85,11 +85,11 @@ def _create_unit(symbol, x, y):
 
 
 def generate_map():
-    for i in range(13):
-        for j in range(24):
-            ground = _create_ground(test_map[i][j], i, j)
+    for idx, i in enumerate(test_map):
+        for idxj, j in enumerate(i):
+            ground = _create_ground(j, idx, idxj)
             ground_list.append(ground)
-            unit = _create_unit(test_map[i][j], i, j)
+            unit = _create_unit(j, idx, idxj)
             if unit is not None:
                 unit_list.append(unit)
     return ground_list, unit_list
