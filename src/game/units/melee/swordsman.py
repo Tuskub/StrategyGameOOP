@@ -1,10 +1,10 @@
 from dataclasses import dataclass
-from units.melee_unit import Melee
-from constants.horsemanconst import HP, MOVE_RANGE, DAMAGE, IMG_PLAYER_1_PATH, IMG_PLAYER_2_PATH # noqa
+from src.game.units.melee_unit import Melee
+from src.game.constants.swordsmanconst import HP, MOVE_RANGE, DAMAGE, IMG_PLAYER_1_PATH, IMG_PLAYER_2_PATH # noqa
 
 
 @dataclass
-class Horseman(Melee):
+class Swordsman(Melee):
     _hp: int = HP
     move_range: int = MOVE_RANGE
     _damage: int = DAMAGE

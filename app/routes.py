@@ -2,9 +2,9 @@ import re
 from flask import render_template, flash, redirect
 from app import app
 from app.forms import ActionForm
-from constants.gamemap import generate_map
-from mainclass.map import Map
-from control.game_control import GameControl
+from src.game.constants.gamemap import generate_map
+from src.game.mainclass.map import Map
+from src.game.control.game_control import GameControl
 
 ground_list, unit_list = generate_map()
 map = Map(ground_list, unit_list)

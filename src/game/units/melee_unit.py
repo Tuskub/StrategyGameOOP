@@ -1,6 +1,6 @@
 from dataclasses import dataclass
-from units.unit import Unit
-from constants.meleeconst import ATTACK_RANGE
+from src.game.units.unit import Unit
+from src.game.constants.meleeconst import ATTACK_RANGE
 
 
 @dataclass

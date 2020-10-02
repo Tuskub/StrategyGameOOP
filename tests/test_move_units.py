@@ -1,11 +1,11 @@
 import pytest
-from mainclass.map import Map
-from control.game_control import GameControl
-from units.range.archer import Archer
-from units.range.catapult import Catapult
-from units.melee.horseman import Horseman
-from units.melee.swordsman import Swordsman
-from grounds.playable.grass import Grass
+from src.game.mainclass.map import Map
+from src.game.control.game_control import GameControl
+from src.game.units.range.archer import Archer
+from src.game.units.range.catapult import Catapult
+from src.game.units.melee.horseman import Horseman
+from src.game.units.melee.swordsman import Swordsman
+from src.game.grounds.playable.grass import Grass
 
 
 MOVE_POSITION_X = 15

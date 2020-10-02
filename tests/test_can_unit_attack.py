@@ -1,8 +1,8 @@
 import pytest
-from units.range.archer import Archer
-from units.range.catapult import Catapult
-from units.melee.horseman import Horseman
-from units.melee.swordsman import Swordsman
+from src.game.units.range.archer import Archer
+from src.game.units.range.catapult import Catapult
+from src.game.units.melee.horseman import Horseman
+from src.game.units.melee.swordsman import Swordsman
 
 
 class TestCanUnitAttack():

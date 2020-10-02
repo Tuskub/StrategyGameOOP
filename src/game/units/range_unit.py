@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from units.unit import Unit
+from src.game.units.unit import Unit
 from math import fabs
 
 

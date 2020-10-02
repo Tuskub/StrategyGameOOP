@@ -1,6 +1,6 @@
 from dataclasses import dataclass
-from grounds.ground import Ground
-from constants.grassconts import PLAYABLE_FIELD, IMP_PATH
+from src.game.grounds.ground import Ground
+from src.game.constants.grassconts import PLAYABLE_FIELD, IMP_PATH
 
 
 @dataclass

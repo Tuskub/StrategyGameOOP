@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from mainclass.coordinates import Coordinates
+from src.game.mainclass.coordinates import Coordinates
 
 
 @dataclass

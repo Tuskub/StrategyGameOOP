@@ -1,10 +1,10 @@
 import pytest
-from units.range.archer import Archer
-from units.range.catapult import Catapult
-from units.melee.horseman import Horseman
-from units.melee.swordsman import Swordsman
-from grounds.playable.grass import Grass
-from grounds.unplayable.water import Water
+from src.game.units.range.archer import Archer
+from src.game.units.range.catapult import Catapult
+from src.game.units.melee.horseman import Horseman
+from src.game.units.melee.swordsman import Swordsman
+from src.game.grounds.playable.grass import Grass
+from src.game.grounds.unplayable.water import Water
 
 
 @pytest.mark.parametrize('unit, coordinate',

@@ -1,6 +1,6 @@
 from dataclasses import dataclass
-from grounds.ground import Ground
-from constants.waterconst import PLAYABLE_FIELD, IMG_PATH
+from src.game.grounds.ground import Ground
+from src.game.constants.waterconst import PLAYABLE_FIELD, IMG_PATH
 
 
 @dataclass

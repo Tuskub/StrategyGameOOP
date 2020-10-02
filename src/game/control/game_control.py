@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from mainclass.map import Map
+from src.game.mainclass.map import Map
 
 
 @dataclass

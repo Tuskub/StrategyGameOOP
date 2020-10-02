@@ -1,7 +1,7 @@
 from math import fabs
 from dataclasses import dataclass
-from mainclass.coordinates import Coordinates
-from constants.unitsconst import IS_DEAD
+from src.game.mainclass.coordinates import Coordinates
+from src.game.constants.unitsconst import IS_DEAD
 
 
 @dataclass
